@@ -28,11 +28,16 @@ const addTaskSection= document.createElement("div");
 const addForm= document.createElement("form");
 addForm.className="addForm";
 
+// addForm.addEventListener('submit',function(event){
+//     const taskLi= document.createElement("li");
+//     taskLi.innerText = event.target.elements.task.value;
+// })
+
 //body-div-div-form-input
 const addInput= document.createElement("input");
 addInput.type="text";
-addInput.id="input-text";
-addInput.className="addInput";
+addInput.id="inputText";
+addInput.className="add-input";
 
 //body-div-div-form-button
 const addMainBtn= document.createElement("button");
@@ -62,8 +67,52 @@ const deleteTitle=document.createElement("li");
 headerTitle.append(checkBoxTitle, descriptionTitle,priorityTitle,deleteTitle);
 header.append(headerTitle);
 
-// const list= document.createElement("li");
-// list.innerText= ""
+//-------------------------------------------------------------------------------
+//Task List Section
+//body-div-div
+const taskListSec= document.createElement("div");
 
+//body-div-div-ul
+const ulTaskList=document.createElement("ul");
+
+taskListSec.append(ulTaskList);
+//body-div-div-ul-li
+//logic here to add li based on input
+
+addForm.addEventListener("submit",function(event){
+    //console.dir(addForm.inputText.value);
+    if(!event.target.elements.inputText.value){
+        return;
+    }
+    // console.dir(event);
+    event.preventDefault();
+    const liTaskList=document.createElement("li");
+    liTaskList.innerText=event.target.elements.inputText.value;
+    liTaskList.className="task-list";
+    liTaskList.style.cursor="pointer";
+
+    liTaskList.addEventListener("click",function(){
+       liTaskList.classList.toggle("done"); 
+    })
+
+    const delBtn= document.createElement("button");
+    delBtn.className="delBtn"
+    const delBtnImg= document.createElement("img");
+    delBtnImg.setAttribute("src","./assets/delete-button.jpg");
+    
+    delBtn.addEventListener("click",function(){
+        liTaskList.remove();
+    })
+
+
+    liTaskList.append(delBtn);
+    delBtn.append(delBtnImg);
+    ulTaskList.append(liTaskList);
+    event.target.elements.inputText.value="";
+})
+
+
+
+//-------------------------------------------------------------------------------
 //body-div Appenders
-root.append(titleSection,subTitle,addTaskSection,header);
+root.append(titleSection,subTitle,addTaskSection,header,taskListSec);

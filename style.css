@@ -2,6 +2,11 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     /* background-color: #f1f2f4; */
 }
+/* Common Class */
+.done{
+    color: gray;
+    text-decoration: line-through;
+}
 
 /* Title Section */
 #titleSection {
@@ -18,6 +23,7 @@
 
 #root h3{
     margin-left: 3rem;
+    color: #7ba17b;
 }
 /* Input Section */
 .addForm {
@@ -38,11 +44,24 @@
     height: 2.5rem;
 }
 
-.addInput{
+.add-input{
     height: 2.5rem;
     width: 29.5rem;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     border: solid #82c482;
     border-radius: 0.6rem;
+    outline: none;
 }
 
+.delBtn{
+    background-color: #fff;
+    outline: none;
+    border: none;
+    padding: none;
+    text-align: none;
+   
+}
+.delBtn img{
+    width: 2.5rem;
+    height: 2.5rem;
+}
