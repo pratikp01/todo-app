@@ -53,6 +53,26 @@
     outline: none;
 }
 
+#ulTaskList{
+    list-style-type: none;
+}
+
+.task-list{
+    display: flex;
+}
+.task-list input{
+    margin-left: 3rem;
+}
+.task-list input[type="checkbox"]{
+    transform: scale(1.4);
+}
+
+.task-list label{
+    border: solid;
+    width: 80rem;
+    margin-left: 1rem;
+}
+
 .delBtn{
     background-color: #fff;
     outline: none;

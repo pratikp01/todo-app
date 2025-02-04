@@ -74,6 +74,7 @@ const taskListSec= document.createElement("div");
 
 //body-div-div-ul
 const ulTaskList=document.createElement("ul");
+ulTaskList.id="ulTaskList";
 
 taskListSec.append(ulTaskList);
 //body-div-div-ul-li
@@ -87,9 +88,13 @@ addForm.addEventListener("submit",function(event){
     // console.dir(event);
     event.preventDefault();
     const liTaskList=document.createElement("li");
-    liTaskList.innerText=event.target.elements.inputText.value;
+    const checkBox=document.createElement("input");
+    checkBox.type="checkbox";
+    const taskLabel=document.createElement("label");
+    taskLabel.innerText=event.target.elements.inputText.value;
     liTaskList.className="task-list";
     liTaskList.style.cursor="pointer";
+    liTaskList.append(checkBox,taskLabel);
 
     liTaskList.addEventListener("click",function(){
        liTaskList.classList.toggle("done"); 
