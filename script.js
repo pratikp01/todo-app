@@ -52,19 +52,23 @@ bImg.setAttribute("src","./assets/add-button.png");
 addMainBtn.append(bImg);
 addForm.append(addInput,addMainBtn);
 addTaskSection.append(addForm);
+
+//body-div-hr
+const divider = document.createElement("hr");
+divider.style.marginTop="0.3rem";
 //-------------------------------------------------------------------------------
 //body-div-header
 const header= document.createElement("header");
 const headerTitle= document.createElement("ul");
-const checkBoxTitle= document.createElement("li");
-checkBoxTitle.innerText="Check";
-const descriptionTitle=document.createElement("li");
-descriptionTitle.innerText="Tasks Description";
-const priorityTitle=document.createElement("li");
-priorityTitle.innerText="Priority";
-const deleteTitle=document.createElement("li");
-//body-div-header Appenders
-headerTitle.append(checkBoxTitle, descriptionTitle,priorityTitle,deleteTitle);
+// const checkBoxTitle= document.createElement("li");
+// checkBoxTitle.innerText="Check";
+// const descriptionTitle=document.createElement("li");
+// descriptionTitle.innerText="Tasks Description";
+// const priorityTitle=document.createElement("li");
+// priorityTitle.innerText="Priority";
+// const deleteTitle=document.createElement("li");
+// //body-div-header Appenders
+// headerTitle.append(checkBoxTitle, descriptionTitle,priorityTitle,deleteTitle);
 header.append(headerTitle);
 
 //-------------------------------------------------------------------------------
@@ -88,22 +92,40 @@ addForm.addEventListener("submit",function(event){
     // console.dir(event);
     event.preventDefault();
     const liTaskList=document.createElement("li");
+
+    let date= Date.now()
+    date= date.toString();
+    let randomId= date;
+
     const checkBox=document.createElement("input");
     checkBox.type="checkbox";
+    // checkBox.id=randomId;
     const taskLabel=document.createElement("label");
     taskLabel.innerText=event.target.elements.inputText.value;
+    // taskLabel.htmlFor=randomId;
+
     liTaskList.className="task-list";
-    liTaskList.style.cursor="pointer";
+    taskLabel.style.cursor="pointer";
     liTaskList.append(checkBox,taskLabel);
 
-    liTaskList.addEventListener("click",function(){
-       liTaskList.classList.toggle("done"); 
+    taskLabel.addEventListener("click",function(){
+       taskLabel.classList.toggle("done"); 
+       if(checkBox.checked === true){
+        checkBox.checked=false;
+       }else{
+        checkBox.checked=true;
+       }
+    })
+    checkBox.addEventListener("change",  function(){
+        taskLabel.classList.toggle("done"); 
     })
 
     const delBtn= document.createElement("button");
     delBtn.className="delBtn"
     const delBtnImg= document.createElement("img");
     delBtnImg.setAttribute("src","./assets/delete-button.jpg");
+    delBtnImg.className="del-img";
+
     
     delBtn.addEventListener("click",function(){
         liTaskList.remove();
@@ -120,4 +142,4 @@ addForm.addEventListener("submit",function(event){
 
 //-------------------------------------------------------------------------------
 //body-div Appenders
-root.append(titleSection,subTitle,addTaskSection,header,taskListSec);
+root.append(titleSection,subTitle,addTaskSection,divider,header,taskListSec);
