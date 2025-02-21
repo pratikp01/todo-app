@@ -1,0 +1,102 @@
+#root {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* background-color: #f1f2f4; */
+}
+/* Common Class */
+.done{
+    color: gray;
+    text-decoration: line-through;
+}
+
+/* Title Section */
+#titleSection {
+    display: flex;
+    margin: 1rem 0 0 2rem;
+}
+
+#titleSection h1{
+    font-size: 4.1rem;
+    font-weight:500;
+    color: black;
+    font-family: monospace;
+}
+
+#root h3{
+    margin-left: 3rem;
+    color: #7ba17b;
+}
+/* Input Section */
+.addForm {
+    display: flex;
+    margin: 0 0 0 3rem;
+}
+
+.addMain{
+    background-color: #fff;
+    outline: none;
+    border: none;
+    padding: none;
+    text-align: none;
+   
+}
+.addMain img{
+    width: 2.5rem;
+    height: 2.5rem;
+}
+
+.add-input{
+    height: 2.5rem;
+    width: 29.5rem;
+    font-size: 1.2rem;
+    border: solid #82c482;
+    border-radius: 0.6rem;
+    outline: none;
+}
+
+#ulTaskList{
+    list-style-type: none;
+}
+
+.task-list{
+    display: flex;
+}
+.task-list input{
+    margin-left: 3rem;
+}
+.task-list input[type="checkbox"]{
+    transform: scale(1.7);
+}
+
+.task-list label{
+    /* border: solid; */
+    background-color: rgb(234, 246, 234);
+    width: 80rem;
+    margin: 0.5rem 0 0.5rem 1rem;
+    box-sizing: border-box;
+    padding: none;
+    font-size: 1.5rem;
+    border-radius: 0.5rem;
+
+}
+
+.delBtn{
+    background-color: #fff;
+    outline: none;
+    border: none;
+    padding: none;
+    text-align: none;
+   
+}
+.delBtn img{
+    width: 2rem;
+    height: 2rem;
+}
+
+.delBtn:hover .del-img{
+    transition: transform .6s ease-in-out;
+    transform: rotate(180deg);
+}
+
+/* .task-list:hover label{
+    box-shadow: 0.2rem 0.4rem;
+} */
